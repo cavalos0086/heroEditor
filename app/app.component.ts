@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Hero} from './hero';
 
 const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },
@@ -16,48 +17,27 @@ const HEROES: Hero[] = [
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
-    <div *ngIf="selectedHero">
-    <h2>{{selectedHero.name}} details!</h2>
-    <div><label>id: </label>{{selectedHero.id}}</div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </div>
-    </div>
-    <h2>My Heroes</h2>
-    <ul class="heroes">
-      <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-       <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </li>
-    </ul>
-  `,
+  <h1>{{title}}</h1>
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+`,
+
 })
 
 export class AppComponent {
   title = 'Tour of Heroes';
-  // hero = 'Windstorm';
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
-
   heroes = HEROES;
   selectedHero: Hero;
 
   ////////////////////////
-
   onSelect(hero: Hero): void {
-    console.log('hero', hero);
     this.selectedHero = hero;
   }
-
 }
-
-export class Hero {
-  id: number;
-  name: string;
-}
-
-
-
