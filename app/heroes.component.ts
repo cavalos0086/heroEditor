@@ -15,7 +15,6 @@ import { HeroService } from './hero.service';
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
   </ul>
-  <my-hero-detail [hero]="selectedHero"></my-hero-detail>
   `,
   providers: [HeroService]
 })
