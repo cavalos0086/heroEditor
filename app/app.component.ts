@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HeroesComponent } from './heroes.component';
 
 @Component({
   selector: 'my-app',
