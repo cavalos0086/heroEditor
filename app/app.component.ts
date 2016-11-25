@@ -5,8 +5,11 @@ import { HeroesComponent } from './heroes.component';
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <a routerLink="/heroes">Heroes</a>
-    <router-outlet></router-outlet>
+    <nav>
+      <a routerLink="/heroes">Heroes</a>
+      <a routerLink="/dashboard">Dashboard</a>
+      <router-outlet></router-outlet>
+    </nav>
   `
 })
 
